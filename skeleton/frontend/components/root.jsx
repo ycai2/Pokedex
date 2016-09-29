@@ -2,13 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import PokemonIndexContainer from './pokemon/pokemon_index_container';
 import PokemonDetailContainer from './pokemon/pokemon_detail_container';
+import ToyDetailContainer from './pokemon/toys/toy_detail_container';
 import { Router, Route, hashHistory } from 'react-router';
 import { requestAllPokemon, requestPokemon } from '../actions/pokemon_actions';
 
 const allPokemon = (store) => () => {
   return store.dispatch(requestAllPokemon());
 }
-
 
 const singlePokemon = (store) => (nextState) => {
   return store.dispatch(requestPokemon(nextState.params.id));
@@ -25,6 +25,10 @@ const Root = ({ store }) => (
           path='pokemon/:id'
           component={PokemonDetailContainer}
           onEnter={singlePokemon(store)}>
+          <Route
+            path='toys/:toyId'
+            component={ToyDetailContainer}>
+          </Route>
         </Route>
       </Route>
     </Router>

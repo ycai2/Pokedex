@@ -2,15 +2,13 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { allToys } from '../../reducers/selectors';
 
-const PokemonDetail = ({ pokemon, router }) => {
-  const url = `/pokemon/${pokemon.id}`;
-
+const PokemonDetail = ({ pokemon, router, children }) => {
   const handleClick = (url) => {
     router.push(url);
   };
 
   const toys = allToys(pokemon).map((toy) => {
-    return (<li key={toy.id}>{toy.name}</li>);
+    return (<li key={toy.id} onClick={handleClick.bind(null, `pokemon/${pokemon.id}/toys/${toy.id}`)}>{toy.name}</li>);
   });
 
   return (
@@ -23,10 +21,11 @@ const PokemonDetail = ({ pokemon, router }) => {
           <li>Defense: {pokemon.defense}</li>
           <li>Moves: &#34;{pokemon.moves}&#34;</li>
         <section className="toys">
-            <h3>Toys</h3>
+          <h3>Toys</h3>
           <ul className="toy-list">
             {toys}
           </ul>
+          {children}
         </section>
       </ul>
     </section>

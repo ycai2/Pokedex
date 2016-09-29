@@ -6,6 +6,7 @@ export const fetchAllPokemon = (success) => {
 };
 
 export const fetchPokemon = (id, success) => {
+  debugger
   $.ajax({
     url: `api/pokemon/${id}`,
     success

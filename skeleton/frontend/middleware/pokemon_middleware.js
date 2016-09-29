@@ -10,7 +10,6 @@ const PokemonMiddleware = ({ dispatch }) => (next) => (action) => {
       break;
     case REQUEST_POKEMON:
       success = pokemon => dispatch(receivePokemon(pokemon));
-      // debugger
       fetchPokemon(action.id, success);
       break;
     default:
