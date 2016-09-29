@@ -13,13 +13,11 @@ class PokemonIndex extends React.Component {
   render() {
     // debugger
     let pokemonLis = [];
-    if (typeof this.props.pokemon !== "undefined") {
+    if (this.props.pokemon) {
       pokemonLis = this.props.pokemon.map((pokemon) => {
         return (<li key={pokemon.id}>{pokemon.name}</li>);
       });
     }
-
-
 
     return (
       <section className="pokedex">

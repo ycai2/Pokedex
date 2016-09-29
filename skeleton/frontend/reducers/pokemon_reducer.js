@@ -4,10 +4,9 @@ import merge from 'lodash/merge';
 const defaultState = [];
 
 const PokemonReducer = (state = defaultState, action) => {
-  const newState = state.slice();
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
-      return newState.concat(action.pokemon);
+      return action.pokemon;
     default:
       return state;
   }

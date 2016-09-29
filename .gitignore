@@ -3,4 +3,3 @@ bundle.js
 bundle.map.js
 .DS_Store
 .byebug_history
-tmp/cache/
