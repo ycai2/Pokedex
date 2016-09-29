@@ -14,18 +14,17 @@ const mapStateToProps = (state) => {
   });
 };
 
-const mapDispatchToProps = dispatch => ({
-  receiveAllPokemon: pokemon => dispatch(receiveAllPokemon(pokemon)),
-  requestAllPokemon: () => dispatch(requestAllPokemon())
-});
+// const mapDispatchToProps = dispatch => ({
+//   receiveAllPokemon: pokemon => dispatch(receiveAllPokemon(pokemon)),
+//   requestAllPokemon: () => dispatch(requestAllPokemon())
+// });
 
 // const mapDispatchToProps = dispatch => {
 //   bindActionCreators(receiveAllPokemon, requestAllPokemon, dispatch);
 // }
 
 const PokemonIndexContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(PokemonIndex);
 
 export default PokemonIndexContainer;
