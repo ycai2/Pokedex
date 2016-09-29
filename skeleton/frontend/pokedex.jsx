@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './store/store';
+import Root from './components/root';
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<h1>pokedex?!?!</h1>, document.getElementById('root')); 
+  const store = configureStore();
+  window.store = store;
+  ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });
